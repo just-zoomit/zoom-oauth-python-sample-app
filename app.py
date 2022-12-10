@@ -4,8 +4,8 @@ from uuid import uuid4
 import requests
 import requests.auth
 import urllib
-CLIENT_ID = "iiw6X2ThRxGnfSBbP8l7Q" # Fill this in with your client ID
-CLIENT_SECRET = "uv8w1woP90p5ez2ZTFLS3xrz58fbbW8k" # Fill this in with your client secret
+CLIENT_ID = "Your Client ID" # Fill this in with your client ID
+CLIENT_SECRET = "Your Client Secret" # Fill this in with your client secret
 REDIRECT_URI = "http://localhost:65010/zoom_callback"
 
 
