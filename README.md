@@ -28,6 +28,7 @@ pip install -r requirements.txt
 
 Run python main.py this will run the program.
 
+# Add CSS to your application
 You can create a style.css style sheet file to add CSS to your application. First, create a directory called static inside your main flask_oauth directory:
 
 ```

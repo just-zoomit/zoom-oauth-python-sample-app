@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask, abort, request,render_template
-from uuid import uuid4
+from flask import Flask,request,render_template
 import requests
 import requests.auth
 import urllib
