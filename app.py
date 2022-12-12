@@ -5,20 +5,23 @@ import requests
 import requests.auth
 import urllib
 
-import json
-CLIENT_ID = "Your Client ID" # Fill this in with your client ID
-CLIENT_SECRET = "Your Client Secret" # Fill this in with your client secret
-REDIRECT_URI = "http://localhost:65010/zoom_callback"
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+CLIENT_ID = os.getenv('CLIENT_ID') # Get your client ID set in .env file
+CLIENT_SECRET = os.getenv('CLIENT_SECRET') # Get your client secret set in .env file
+REDIRECT_URI = os.getenv('REDIRECT_URI')
 
 
 app = Flask(__name__)
 @app.route('/')
 def homepage():
-    text = make_authorization_url()
+    authURL = make_authorization_url()
 
     
-    return render_template('index.html', text=text)
+    return render_template('index.html', authURL=authURL)
 
 
 def make_authorization_url():
