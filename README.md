@@ -1,24 +1,31 @@
-# To run the app: 
+# About
 
-$ python3 oAuth_app.py 
+Sample Zoom Oauth App using FLASK Web Server to call Zoom's APIs
 
-$ flask run -h localhost -p 65010
 
-Creating a virtual environment
+Use of this sample app is subject to our [Terms of Use](https://zoom.us/docs/en-us/zoom_api_license_and_tou.html)
+
+This is a Hello World app using an OAuth Marketplace App client ID and Secret to create an OAuth token, used to call the Zoom API.
+
+Follow allong with relevant Zoom OAuth documentation as we set this up:
+
+OAuth with Zoom
+Create an OAuth App
+Get Started Instructions: 
+
+# Setup app locally
+
+First, if virtualenv not installed, run following commands to install and create virtual environment.
+
+```bash
+$ pip install  virtualenv
 $ python3 -m venv env
+```
+Before you can start installing or using packages in your virtual environment you’ll need to activate it. Activating a virtual environment will put the virtual environment-specific python and pip executables into your shell’s PATH.
 
-Activating a virtual environment & deactivate
-
+```bash
 $ source env/bin/activate
-$ deactivate
-
-# Install 
-$ pip3 install requests
-$ pip3 install flask  
-
-Sign to your account
-
-First, create a new folder in the project directory called templates. This naming is important. Now create a new file in the templates folder naming “index.html”. Then insert the below code in the file.
+```
 
 Run the command pip install -r requirements.txt to install all the packages required in your virtual environment.
 
@@ -26,51 +33,42 @@ Run the command pip install -r requirements.txt to install all the packages requ
 pip install -r requirements.txt
 ```
 
-Run python main.py this will run the program.
+### Setup dotenv 
+Create a `.env` file in which to store your PORT, access credentials, and Redirect URL.
 
-# Add CSS to your application
-You can create a style.css style sheet file to add CSS to your application. First, create a directory called static inside your main flask_oauth directory:
-
-```
-mkdir static
-
+```bash
+touch .env
 ```
 
-Then create another directory called css inside the static directory to host .css files.
+Copy the following into this file, which we'll add your own values to:
 
 ```
-mkdir static/css
-
+CLIENT_ID = "Fill this in with your client ID" 
+CLIENT_SECRET = "Fill this in with your client secret" 
+REDIRECT_URI = "Fill this in with your redirect URI" 
 ```
 
-Then create and open a style.css file inside the css directory for editing:
+> Remember: Never share or store your client credentials publicly. Your `.env` is included in the `.gitignore` file to ensure these files won't be included in a git workflow.
 
+
+## Run server
+To run the appilcation, run the following command : 
+
+```bash
+$ python3 OAuth2.py
+or 
+$ flask run -h localhost -p 4000
 ```
-touch style.css 
+## Next steps 
 
-```
+Follow our documentation on OAuth with Zoom for more information on building a user-level app on the Zoom App Marketplace. 
 
-Add the following CSS rule to your style.css file. Save and close the file.
+Code happy!
 
-```
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');html {color: #232333;font-family: 'Open Sans', Helvetica, Arial, sans-serif;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}h2 {font-weight: 700;font-size: 24px;}h4 {font-weight: 600;font-size: 14px;}.container {margin: 24px auto;padding: 16px;max-width: 720px;}.info {display: flex;align-items: center;}.info>div>span, .info>div>p {font-weight: 400;font-size: 13px;color: #747487;line-height: 16px;}.info>div>span::before {content: "👋";}.info>div>h2 {padding: 8px 0 6px;margin: 0;}.info>div>p {padding: 0;margin: 0;}.info>img {background: #747487;height: 96px;width: 96px;border-radius: 31.68px;overflow: hidden;margin: 0 20px 0 0;}.response {margin: 32px 0;display: flex;flex-wrap: wrap;align-items: center;justify-content: space-between;}.response>a {text-decoration: none;color: #2D8CFF;font-size: 14px;}.response>pre {overflow-x: scroll;background: #f6f7f9;padding: 1.2em 1.4em;border-radius: 10.56px;width: 100%;box-sizing: border-box;}
+## Need help?
+
+If you're looking for help, try [Developer Support](https://devsupport.zoom.us) or our [Developer Forum](https://devforum.zoom.us). Priority support is also available with [Premier Developer Support](https://zoom.us/docs/en-us/developer-support-plans.html) plans.
 
 
-```
 
-Next, open the index.html template file for editing:
 
-```html
-. . .
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <title>FlaskBlog</title>
-</head>
-. . .
-
-```
-
-Here you use the url_for() helper function to generate the appropriate location of the file. The first argument specifies that you’re linking to a static file and the second argument is the path of the file inside the static directory.
-
-Save and close the file.
