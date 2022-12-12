@@ -12,6 +12,7 @@ load_dotenv()
 CLIENT_ID = os.getenv('CLIENT_ID') # Get your client ID set in .env file
 CLIENT_SECRET = os.getenv('CLIENT_SECRET') # Get your client secret set in .env file
 REDIRECT_URI = os.getenv('REDIRECT_URI')
+PORT = os.getenv('PORT')
 
 
 app = Flask(__name__)
@@ -72,4 +73,4 @@ def get_userdata(access_token):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=65010)
+    app.run(debug=True, port=PORT)
